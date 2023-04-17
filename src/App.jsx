@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <h1>Stranger Things</h1>
-      <RegisterForm />
+      <RegisterForm setToken={setToken} />
     </div>
   );
 }
