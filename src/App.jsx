@@ -21,12 +21,9 @@ function App() {
             path="/"
             element={
               <form>
-                <input type="text" placeholder="username">
-                  Username
-                </input>
-                <input type="text" placeholder="password">
-                  Password
-                </input>
+                <input type="text" placeholder="username" />
+
+                <input type="text" placeholder="password" />
                 <button>login</button>
               </form>
             }
