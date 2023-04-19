@@ -17,6 +17,20 @@ function App() {
       <div id="main-section">
         <Routes>
           <Route path="/form" element={<RegisterForm setToken={setToken} />} />
+          <Route
+            path="/"
+            element={
+              <form>
+                <input type="text" placeholder="username">
+                  Username
+                </input>
+                <input type="text" placeholder="password">
+                  Password
+                </input>
+                <button>login</button>
+              </form>
+            }
+          />
         </Routes>
       </div>
     </div>
