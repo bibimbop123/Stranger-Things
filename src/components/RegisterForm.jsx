@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { registerUser } from "../api";
+import { registerUser } from "../api/Users";
 
 export default function RegisterForm({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
       const result = await registerUser(username, password);
@@ -20,6 +20,7 @@ export default function RegisterForm({ setToken }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label>Registration form</label>
         <input
           type="text"
           placeholder="username"
