@@ -24,13 +24,16 @@ export default function RegisterForm({ setToken }) {
         <input
           type="text"
           placeholder="username"
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
         ></input>
         <input
           type="text"
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
+        <input type="text" placeholder="password confirmation"></input>
         <button> Submit </button>
       </form>
     </div>

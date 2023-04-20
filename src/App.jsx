@@ -3,7 +3,7 @@ import "./App.css";
 import RegisterForm from "./components/RegisterForm";
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import { FetchPosts } from "./api/Posts";
+import FetchAllPosts from "./components/FetchAllPosts";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -30,7 +30,7 @@ function App() {
               </form>
             }
           />
-          <Route path="/posts" element={<FetchPosts />} />
+          <Route path="/posts" element={<FetchAllPosts />} />
         </Routes>
       </div>
     </div>
