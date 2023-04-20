@@ -3,6 +3,7 @@ import "./App.css";
 import RegisterForm from "./components/RegisterForm";
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import { FetchPosts } from "./api/Posts";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <nav id="navbar">
         <Link to="/"> Home Page</Link>
+        <Link to="/posts"> Posts </Link>
       </nav>
       <h1>Stranger Things</h1>
       <Link to="/form"> Register Form</Link>
@@ -28,6 +30,7 @@ function App() {
               </form>
             }
           />
+          <Route path="/posts" element={<FetchPosts />} />
         </Routes>
       </div>
     </div>
