@@ -5,11 +5,24 @@ import useAuth from "../../hooks/useAuth";
 export default function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [error, setError] = useState("");
 
-  const { setToken } = useAuth();
+  const { setToken, user } = useAuth();
+  console.log("user from registerform:", user);
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (username.length < 8) {
+      setError("username must be longer than 8 characters");
+      return;
+    }
+    if (password !== passwordConfirmation) {
+      setError("passwords don't match");
+      return;
+    }
+
+    // if password = password confirmation
     try {
       const result = await registerUser(username, password);
       console.log("result in component: ", result);
@@ -36,9 +49,14 @@ export default function RegisterForm() {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <input type="text" placeholder="password confirmation"></input>
+        <input
+          type="text"
+          placeholder="password confirmation"
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+        ></input>
         <button> Submit </button>
       </form>
+      <div>{error && <h3 style={{ color: "red" }}>{error}</h3>}</div>
     </div>
   );
 }

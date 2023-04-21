@@ -24,4 +24,19 @@ export async function registerUser(username, password){
     }
   }
 
+  export async function fetchMe(token){
+    try{
+      const response = await fetch(`${BASE_URL}/users/me`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization':`Bearer ${token}`
+        },
+      });
+      const result = await response.json()
+      console.log("Result in fetchme function:", result)
+    } catch (error){
+      console.error(error)
+    }
+  }
+
 
