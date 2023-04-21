@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
-import RegisterForm from "./components/RegisterForm";
+import RegisterForm from "./components/auth/RegisterForm";
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import FetchAllPosts from "./components/FetchAllPosts";
+import useAuth from "./hooks/useAuth";
+import { useContext } from "react";
+import { AuthContext } from "./components/auth/AuthProvider";
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  console.log("token:", token);
+  const { token } = useAuth();
+  console.log("token in app.jsx:", token);
   return (
     <div className="App">
       <nav id="navbar">
@@ -18,7 +21,7 @@ function App() {
       <Link to="/form"> Register Form</Link>
       <div id="main-section">
         <Routes>
-          <Route path="/form" element={<RegisterForm setToken={setToken} />} />
+          <Route path="/form" element={<RegisterForm />} />
           <Route
             path="/"
             element={
