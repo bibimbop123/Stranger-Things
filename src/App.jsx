@@ -22,12 +22,15 @@ function App() {
           <Route
             path="/"
             element={
-              <form>
-                <input type="text" placeholder="username" />
+              <div>
+                <h1>Login!</h1>
+                <form>
+                  <input type="text" placeholder="username" />
 
-                <input type="text" placeholder="password" />
-                <button>login</button>
-              </form>
+                  <input type="text" placeholder="password" />
+                  <button>login</button>
+                </form>
+              </div>
             }
           />
           <Route path="/posts" element={<FetchAllPosts />} />
