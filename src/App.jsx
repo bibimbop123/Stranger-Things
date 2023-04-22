@@ -9,13 +9,16 @@ import { useContext } from "react";
 import { AuthContext } from "./components/auth/AuthProvider";
 
 function App() {
-  const { token } = useAuth();
+  const { token, user } = useAuth();
+
   console.log("token in app.jsx:", token);
+  console.log("User in app.jsx:", user);
   return (
     <div className="App">
       <nav id="navbar">
         <Link to="/"> Home Page</Link>
         <Link to="/posts"> Posts </Link>
+        <Link to="/users/me">Profile</Link>
       </nav>
       <h1>Stranger Things</h1>
       <Link to="/form"> Register Form</Link>
@@ -37,6 +40,7 @@ function App() {
             }
           />
           <Route path="/posts" element={<FetchAllPosts />} />
+          {/* <Route path="/users/me" element={<Profile />} />  */}
         </Routes>
       </div>
     </div>
