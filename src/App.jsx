@@ -7,6 +7,7 @@ import FetchAllPosts from "./components/FetchAllPosts";
 import useAuth from "./hooks/useAuth";
 import { useContext } from "react";
 import { AuthContext } from "./components/auth/AuthProvider";
+import CreatePost from "./components/auth/CreatePosts";
 
 function App() {
   const { token, user } = useAuth();
@@ -19,6 +20,7 @@ function App() {
         <Link to="/"> Home Page</Link>
         <Link to="/posts"> Posts </Link>
         <Link to="/users/me">Profile</Link>
+        <Link to="/create-post">Create Posts</Link>
       </nav>
       <h1>Stranger Things</h1>
       <Link to="/form"> Register Form</Link>
@@ -40,6 +42,7 @@ function App() {
             }
           />
           <Route path="/posts" element={<FetchAllPosts />} />
+          <Route path="/create-post" element={<CreatePost />} />
           {/* <Route path="/users/me" element={<Profile />} />  */}
         </Routes>
       </div>
