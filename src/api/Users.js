@@ -38,6 +38,7 @@ export async function registerUser(username, password){
       console.error(error)
     }
   }
+
  export async function loginUser(username,password){
   try {
     const response = await fetch(`${BASE_URL}/users/login`,{
@@ -46,11 +47,12 @@ export async function registerUser(username, password){
         "Content-Type":"application/json",
       },
       body: JSON.stringify({
-        user:{username,
-        password,
-      }.
-      }).
-    })
+        user: {
+          username,
+          password,
+        }
+      }),
+  });
     const result = await response.json();
     console.log(result);
     return result;
