@@ -34,6 +34,7 @@ export async function registerUser(username, password){
       });
       const result = await response.json()
       console.log("Result in fetchme function:", result)
+      return result
     } catch (error){
       console.error(error)
     }
@@ -51,7 +52,7 @@ export async function registerUser(username, password){
           username,
           password,
         }
-      }),
+    }),
   });
     const result = await response.json();
     console.log(result);

@@ -7,7 +7,7 @@ export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const { token } = useAuth;
+  const { token } = useAuth();
 
   return (
     <div>
