@@ -28,20 +28,7 @@ function App() {
       <div id="main-section">
         <Routes>
           <Route path="/form" element={<RegisterForm />} />
-          <Route
-            path="/"
-            element={
-              <div>
-                <h1>Login!</h1>
-                <form>
-                  <input type="text" placeholder="username" />
-
-                  <input type="text" placeholder="password" />
-                  <button>login</button>
-                </form>
-              </div>
-            }
-          />
+          <Route path="/" element={<loginForm />} />
           <Route path="/posts" element={<FetchAllPosts />} />
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/users/profile" element={<Profile />} />
