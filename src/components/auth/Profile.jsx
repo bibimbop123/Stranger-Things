@@ -35,7 +35,9 @@ export default function Profile() {
           user.posts.map((post) => {
             return (
               <div>
-                <h1>{post.title}</h1>
+                <h3>{post.title}</h3>
+                <h3>{post.description}</h3>
+                <h3>{post.price}</h3>
               </div>
             );
           })}
