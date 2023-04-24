@@ -8,6 +8,7 @@ import useAuth from "./hooks/useAuth";
 import { useContext } from "react";
 import { AuthContext } from "./components/auth/AuthProvider";
 import CreatePost from "./components/auth/CreatePosts";
+import Profile from "./components/auth/Profile";
 
 function App() {
   const { token, user } = useAuth();
@@ -19,7 +20,7 @@ function App() {
       <nav id="navbar">
         <Link to="/"> Home Page</Link>
         <Link to="/posts"> Posts </Link>
-        <Link to="/users/me">Profile</Link>
+        <Link to="/users/profile">Profile</Link>
         <Link to="/create-post">Create Posts</Link>
       </nav>
       <h1>Stranger Things</h1>
@@ -43,7 +44,7 @@ function App() {
           />
           <Route path="/posts" element={<FetchAllPosts />} />
           <Route path="/create-post" element={<CreatePost />} />
-          {/* <Route path="/users/me" element={<Profile />} />  */}
+          <Route path="/users/profile" element={<Profile />} />
         </Routes>
       </div>
     </div>
