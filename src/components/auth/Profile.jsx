@@ -18,7 +18,8 @@ export default function Profile() {
   return (
     <div>
       <h2>{user.username}</h2>
-      {user.messages.map()}
+      <div>{user.messages.map(() => {})}</div>
+      <div>{user.posts}</div>
     </div>
   );
 }
