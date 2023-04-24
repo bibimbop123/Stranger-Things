@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import RegisterForm from "./components/auth/RegisterForm";
-import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import FetchAllPosts from "./components/FetchAllPosts";
 import useAuth from "./hooks/useAuth";

@@ -10,16 +10,36 @@ export default function Profile() {
   useEffect(() => {
     async function getProfile() {
       const response = await fetchMe(token);
+      console.log("response from profile:", response);
       setUser(response.data);
     }
+
     getProfile();
   }, [token]);
   console.log("user in profile:", user);
   return (
     <div>
       <h2>{user.username}</h2>
-      <div>{user.messages.map(() => {})}</div>
-      <div>{user.posts}</div>
+      <div>
+        {user.messages &&
+          user.messages.map((message) => {
+            return (
+              <div>
+                <h1></h1>
+              </div>
+            );
+          })}
+      </div>
+      <div>
+        {user.posts &&
+          user.posts.map((post) => {
+            return (
+              <div>
+                <h1>{post.title}</h1>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
