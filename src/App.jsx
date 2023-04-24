@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { AuthContext } from "./components/auth/AuthProvider";
 import CreatePost from "./components/auth/CreatePosts";
 import Profile from "./components/auth/Profile";
+import { LoginForm } from "./components/auth/LoginForm";
 
 function App() {
   const { token, user } = useAuth();
@@ -28,7 +29,7 @@ function App() {
       <div id="main-section">
         <Routes>
           <Route path="/form" element={<RegisterForm />} />
-          <Route path="/" element={<loginForm />} />
+          <Route path="/" element={<LoginForm />} />
           <Route path="/posts" element={<FetchAllPosts />} />
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/users/profile" element={<Profile />} />
