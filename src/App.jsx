@@ -22,6 +22,7 @@ function App() {
         <Link to="/posts"> Posts </Link>
         <Link to="/users/profile">Profile</Link>
         <Link to="/create-post">Create Posts</Link>
+        <Link to="/"> Login </Link>
       </nav>
       <h1>Stranger Things</h1>
       <Link to="/users/register"> Register Form</Link>
