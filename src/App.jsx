@@ -24,10 +24,10 @@ function App() {
         <Link to="/create-post">Create Posts</Link>
       </nav>
       <h1>Stranger Things</h1>
-      <Link to="/form"> Register Form</Link>
+      <Link to="/users/register"> Register Form</Link>
       <div id="main-section">
         <Routes>
-          <Route path="/form" element={<RegisterForm />} />
+          <Route path="/users/register" element={<RegisterForm />} />
           <Route path="/" element={<LoginForm />} />
           <Route path="/posts" element={<FetchAllPosts />} />
           <Route path="/create-post" element={<CreatePost />} />
