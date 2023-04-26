@@ -39,11 +39,11 @@ function App() {
           <>
             <Link to="/"> Login </Link>
             <Link to="/posts"> Posts </Link>
+            <Link to="/users/register"> Register Form</Link>
           </>
         )}
       </nav>
       <h1>Stranger Things</h1>
-      <Link to="/users/register"> Register Form</Link>
       <div id="main-section">
         <Routes>
           <Route path="/users/register" element={<RegisterForm />} />
