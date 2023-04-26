@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import RegisterForm from "./components/auth/RegisterForm";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Outlet } from "react-router-dom";
 import FetchAllPosts from "./components/FetchAllPosts";
 import useAuth from "./hooks/useAuth";
 import { useContext } from "react";
@@ -15,14 +15,32 @@ function App() {
 
   console.log("token in app.jsx:", token);
   console.log("User in app.jsx:", user);
+
+  const ProtectedRoute = () => {
+    const { user } = useAuth();
+    if (user) {
+      return <Outlet />;
+    } else {
+      return <SignIn />;
+    }
+  };
   return (
     <div className="App">
       <nav id="navbar">
         <Link to="/"> Home Page</Link>
-        <Link to="/posts"> Posts </Link>
-        <Link to="/users/profile">Profile</Link>
-        <Link to="/create-post">Create Posts</Link>
-        <Link to="/"> Login </Link>
+        {user !== undefined && (
+          <>
+            <Link to="/posts"> Posts </Link>
+            <Link to="/users/profile">Profile</Link>
+            <Link to="/create-post">Create Posts</Link>
+          </>
+        )}
+        {user === undefined && (
+          <>
+            <Link to="/"> Login </Link>
+            <Link to="/posts"> Posts </Link>
+          </>
+        )}
       </nav>
       <h1>Stranger Things</h1>
       <Link to="/users/register"> Register Form</Link>
@@ -31,8 +49,10 @@ function App() {
           <Route path="/users/register" element={<RegisterForm />} />
           <Route path="/" element={<LoginForm />} />
           <Route path="/posts" element={<FetchAllPosts />} />
-          <Route path="/create-post" element={<CreatePost />} />
-          <Route path="/users/profile" element={<Profile />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/create-post" element={<CreatePost />} />
+            <Route path="/users/profile" element={<Profile />} />
+          </Route>
         </Routes>
       </div>
     </div>
