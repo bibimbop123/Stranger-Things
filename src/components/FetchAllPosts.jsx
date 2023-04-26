@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { fetchPosts } from "../api/Posts";
 import { deletePost } from "../api/Posts";
+import useAuth from "../hooks/useAuth";
 
 export default function FetchAllPosts() {
   const [posts, setPosts] = useState([]);
+  const { token } = useAuth();
 
   useEffect(() => {
     async function getPosts() {
@@ -24,8 +26,9 @@ export default function FetchAllPosts() {
             <p> {post.description}</p>
             <h5> Price: {post.price}</h5>
             <button
-              onClick={() => {
-                deletePost(post._id);
+              onClick={async () => {
+                console.log(token);
+                await deletePost(token, post._id);
               }}
             >
               delete
