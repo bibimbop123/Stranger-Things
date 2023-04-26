@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchPosts } from "../api/Posts";
+import { deletePost } from "../api/Posts";
 
 export default function FetchAllPosts() {
   const [posts, setPosts] = useState([]);
@@ -22,6 +23,13 @@ export default function FetchAllPosts() {
             <p>Title: {post.title}</p>
             <p> {post.description}</p>
             <h5> Price: {post.price}</h5>
+            <button
+              onClick={() => {
+                deletePost(post._id);
+              }}
+            >
+              delete
+            </button>
           </div>
         );
       })}

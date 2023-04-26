@@ -34,3 +34,21 @@ export async function createPost(title, description, price, token) {
     console.error(error.message);
   }
 }
+
+export async function deletePost() {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${_id}}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const result = await response.json();
+    console.log(result);
+    console.log({_id})
+    return result
+  } catch (err) {
+    console.error(err);
+  }
+}
