@@ -34,7 +34,7 @@ function App() {
             <Link to="/posts"> Posts </Link>
             <Link to="/users/profile">Profile</Link>
             <Link to="/create-post">Create Posts</Link>
-            <Link to="/post/:postId/messages">Messages</Link>
+            <Link to="/posts/:postId/messages">Messages</Link>
           </>
         )}
         {(user == null || undefined) && (
@@ -54,7 +54,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/create-post" element={<CreatePost />} />
             <Route path="/users/profile" element={<Profile />} />
-            <Route path="/post/:postId/messages" element={<Messages />} />
+            <Route path="/posts/:postId/messages" element={<Messages />} />
           </Route>
         </Routes>
       </div>

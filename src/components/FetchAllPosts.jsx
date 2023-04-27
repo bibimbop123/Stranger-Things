@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchPosts } from "../api/Posts";
 import { deletePost } from "../api/Posts";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 /*async function editPost(){
   
   console.log("Edit post Id", postId)
@@ -15,6 +16,7 @@ import useAuth from "../hooks/useAuth";
 export default function FetchAllPosts() {
   const [posts, setPosts] = useState([]);
   const { token, user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getPosts() {
@@ -62,6 +64,13 @@ export default function FetchAllPosts() {
                 <button> Edit Post</button>
               </div>
             ) : null}
+            <button
+              onClick={() => {
+                navigate(`/posts/${post._id}/messages`);
+              }}
+            >
+              Message
+            </button>
           </div>
         );
       })}
