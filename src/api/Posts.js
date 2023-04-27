@@ -45,7 +45,7 @@ export async function deletePost(token, postId) {
       }
     });
     const result = await response.json();
-    console.log(result);
+    console.log("result in deletePost:", result);
     return result
   } catch (err) {
     console.error(err);

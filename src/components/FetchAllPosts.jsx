@@ -26,9 +26,11 @@ export default function FetchAllPosts() {
             <p> {post.description}</p>
             <h5> Price: {post.price}</h5>
             <button
-              onClick={async () => {
-                console.log(token);
+              onClick={async (e) => {
+                e.preventDefault();
+                console.log("token", token);
                 await deletePost(token, post._id);
+                console.log("I've been clicked");
               }}
             >
               delete
