@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth";
 
 export default function FetchAllPosts() {
   const [posts, setPosts] = useState([]);
-  const { token } = useAuth();
+  const { token, user } = useAuth();
 
   useEffect(() => {
     async function getPosts() {
@@ -16,13 +16,19 @@ export default function FetchAllPosts() {
     getPosts();
   }, []);
 
-  async function handleDelete() {
+  async function handleDelete(post) {
+    console.log("post:", post);
     try {
-      const resultD = await deletePost(token, posts._id);
-      console.log(resultD);
+      const result = await deletePost(token, post._id);
+      console.log(result);
     } catch (error) {
       console.error(error);
     }
+
+    const result = await fetchPosts();
+
+    console.log("result:", result);
+    setPosts(result.data.posts);
   }
 
   return (
@@ -34,14 +40,16 @@ export default function FetchAllPosts() {
             <p>Title: {post.title}</p>
             <p> {post.description}</p>
             <h5> Price: {post.price}</h5>
-            <button
-              onClick={async (e) => {
-                e.preventDefault();
-                handleDelete();
-              }}
-            >
-              delete
-            </button>
+            {user._id === post.author._id ? (
+              <button
+                onClick={async (e) => {
+                  e.preventDefault();
+                  handleDelete(post);
+                }}
+              >
+                delete
+              </button>
+            ) : null}
           </div>
         );
       })}

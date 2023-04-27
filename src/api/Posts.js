@@ -36,8 +36,9 @@ export async function createPost(title, description, price, token) {
 }
 
 export async function deletePost(token, postId) {
+  console.log(postId)
   try {
-    const response = await fetch(`${BASE_URL}/posts/${postId}}`, {
+    const response = await fetch(`${BASE_URL}/posts/${postId}`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json',

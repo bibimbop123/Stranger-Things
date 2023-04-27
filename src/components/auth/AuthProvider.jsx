@@ -12,7 +12,8 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     async function getMe() {
       const APIresponse = await fetchMe(token);
-      setUser(APIresponse);
+      setUser(APIresponse.data);
+      console.log("APIresponse:", APIresponse);
     }
     if (token) {
       getMe();
