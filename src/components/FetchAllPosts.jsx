@@ -16,6 +16,15 @@ export default function FetchAllPosts() {
     getPosts();
   }, []);
 
+  async function handleDelete() {
+    try {
+      const resultD = await deletePost(token, posts._id);
+      console.log(resultD);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div>
       {posts.map((post) => {
@@ -28,9 +37,7 @@ export default function FetchAllPosts() {
             <button
               onClick={async (e) => {
                 e.preventDefault();
-                console.log("token", token);
-                await deletePost(token, post._id);
-                console.log("I've been clicked");
+                handleDelete();
               }}
             >
               delete
