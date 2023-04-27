@@ -53,7 +53,7 @@ export async function deletePost(token, postId) {
   }
 }
 
-export async function updatePost(postId, token) {
+/*export async function updatePost(postId, token) {
   try {
     // You will need to insert a variable into the fetch template literal
     // in order to make the POST_ID dynamic.
@@ -81,3 +81,4 @@ export async function updatePost(postId, token) {
     console.error(err);
   }
 }
+*/

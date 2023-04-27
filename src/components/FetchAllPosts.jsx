@@ -59,7 +59,7 @@ export default function FetchAllPosts() {
                 >
                   delete
                 </button>
-                <button onClick={editPost()}> Edit Post</button>
+                <button> Edit Post</button>
               </div>
             ) : null}
           </div>
