@@ -21,26 +21,21 @@ export default function Profile() {
   console.log("users messages,", messages);
   return (
     <div>
-      <h2>{user.username}</h2>
+      <h2>username:{user.username}</h2>
       <div>
-        {/* <ul>
-          {messages.map((message, index) =>(
-            <li key={index} >
-            <span> From; {message.fromUser.username}</span>
-            <span>Message: {message.content} </span>
-            </li>
-          ))}
-        </ul> */}
-        {/* {user.messages &&
-          user.messages.map((message) => {
+        <ul>
+          {user.messages.map((message) => {
             return (
-              <div>
-                <h2>{[messages]}</h2>
-              </div>
+              <li>
+                <div> From: {message.fromUser.username}</div>
+                <div>Message: {message.content} </div>
+              </li>
             );
-          })} */}
+          })}
+        </ul>
       </div>
       <div>
+        <h1>Posts:</h1>
         {user.posts &&
           user.posts.map((post) => {
             return (

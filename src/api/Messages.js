@@ -16,7 +16,7 @@ export async function postMessage(postId, token, message) {
       }),
     });
     const result = await response.json();
-    console.log(result, "result message ");
+    console.log("result message:", result);
     return result;
   } catch (error) {
     console.log(error);

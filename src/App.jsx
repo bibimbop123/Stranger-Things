@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import RegisterForm from "./components/auth/RegisterForm";
+import RegisterForm from "./components/RegisterForm";
 import { Routes, Route, Link, Outlet } from "react-router-dom";
 import FetchAllPosts from "./components/FetchAllPosts";
 import useAuth from "./hooks/useAuth";
@@ -9,6 +9,7 @@ import { AuthContext } from "./components/auth/AuthProvider";
 import CreatePost from "./components/auth/CreatePosts";
 import Profile from "./components/auth/Profile";
 import { LoginForm } from "./components/auth/LoginForm";
+import Messages from "./components/auth/Messages";
 
 function App() {
   const { token, user } = useAuth();
@@ -33,6 +34,7 @@ function App() {
             <Link to="/posts"> Posts </Link>
             <Link to="/users/profile">Profile</Link>
             <Link to="/create-post">Create Posts</Link>
+            <Link to="/post/:postId/messages">Messages</Link>
           </>
         )}
         {(user == null || undefined) && (
@@ -52,6 +54,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/create-post" element={<CreatePost />} />
             <Route path="/users/profile" element={<Profile />} />
+            <Route path="/post/:postId/messages" element={<Messages />} />
           </Route>
         </Routes>
       </div>
