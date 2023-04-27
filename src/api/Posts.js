@@ -14,14 +14,14 @@ export async function fetchPosts() {
 
 export async function createPost(title, description, price, token) {
   try {
-    const response = await fetch(`${BASE_URL}/posts`,{
-      method:"POST",
+    const response = await fetch(`${BASE_URL}/posts`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        post:{
+        post: {
           title,
           description,
           price,
@@ -36,49 +36,48 @@ export async function createPost(title, description, price, token) {
 }
 
 export async function deletePost(token, postId) {
-  console.log(postId)
+  console.log(postId);
   try {
     const response = await fetch(`${BASE_URL}/posts/${postId}`, {
       method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     });
     const result = await response.json();
     console.log("result in deletePost:", result);
-    return result
+    return result;
   } catch (err) {
     console.error(err);
   }
 }
 
-const updatePost = async () => {
+export async function updatePost(postId, token) {
   try {
-    // You will need to insert a variable into the fetch template literal 
-    // in order to make the POST_ID dynamic. 
+    // You will need to insert a variable into the fetch template literal
+    // in order to make the POST_ID dynamic.
     // 5e8d1bd48829fb0017d2233b is just for demonstration.
     const response = await fetch(`${BASE_URL}/posts/${postId}`, {
       method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         post: {
-          title: "My favorite stuffed animal",
-          description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
-          price: "$480.00",
-          location: "New York, NY",
-          willDeliver: true
-        }
-      })
+          title: `${newTitle}`,
+          description: `${newDescription}`,
+          price: `${newPrice}`,
+          location: `${newLocation}`,
+          willDeliver: true,
+        },
+      }),
     });
     const result = await response.json();
     console.log(result);
-    return result
+    return result;
   } catch (err) {
     console.error(err);
   }
 }
-

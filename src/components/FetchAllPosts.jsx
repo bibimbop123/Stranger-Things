@@ -2,7 +2,16 @@ import { useState, useEffect } from "react";
 import { fetchPosts } from "../api/Posts";
 import { deletePost } from "../api/Posts";
 import useAuth from "../hooks/useAuth";
-
+/*async function editPost(){
+  
+  console.log("Edit post Id", postId)
+  try {
+    const result = await updatePost()
+    
+  } catch (error) {
+    
+  }
+}*/
 export default function FetchAllPosts() {
   const [posts, setPosts] = useState([]);
   const { token, user } = useAuth();
@@ -50,7 +59,7 @@ export default function FetchAllPosts() {
                 >
                   delete
                 </button>
-                <button> Edit Post</button>
+                <button onClick={editPost()}> Edit Post</button>
               </div>
             ) : null}
           </div>
