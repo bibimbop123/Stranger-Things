@@ -41,14 +41,17 @@ export default function FetchAllPosts() {
             <p> {post.description}</p>
             <h5> Price: {post.price}</h5>
             {user._id === post.author._id ? (
-              <button
-                onClick={async (e) => {
-                  e.preventDefault();
-                  handleDelete(post);
-                }}
-              >
-                delete
-              </button>
+              <div>
+                <button
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    handleDelete(post);
+                  }}
+                >
+                  delete
+                </button>
+                <button> Edit Post</button>
+              </div>
             ) : null}
           </div>
         );
