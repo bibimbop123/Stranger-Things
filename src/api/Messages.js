@@ -22,3 +22,21 @@ export async function postMessage(postId, token, content) {
     console.log(error);
   }
 }
+// export async function deleteMessage(token, MessageId) {
+//     console.log("Message Id:", MessageId);
+//     try {
+//       const response = await fetch(`${BASE_URL}/posts/${MessageId}`, {
+//         method: "DELETE",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+//       const result = await response.json();
+//       console.log("result in deletePost:", result);
+//       return result;
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   }
+  

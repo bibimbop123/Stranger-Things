@@ -95,7 +95,7 @@ export default function FetchAllPosts() {
                 >
                   delete
                 </button>
-                <button> Edit Post</button>
+                <button onClick={() => {}}> Edit Post</button>
               </div>
             ) : null}
             <button
