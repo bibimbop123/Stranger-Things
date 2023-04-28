@@ -3,6 +3,7 @@ import { fetchPosts } from "../api/Posts";
 import { deletePost } from "../api/Posts";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import PostsList from "./auth/PostsList";
 /*async function editPost(){
   
   console.log("Edit post Id", postId)
@@ -47,9 +48,14 @@ export default function FetchAllPosts() {
   });
   const postsToDisplay = searchParam ? posts : filteredPosts;
 
+  const allPostsToDisplay = postsToDisplay.map((post) => {
+    return <PostsList key={post._id} post={post} />;
+  });
+
   const filteredPosts2 = posts.filter((post) => {
     return post.title.toLowerCase().includes(searchParam2);
   });
+
   const postsToDisplay2 = searchParam2 ? posts : filteredPosts2;
 
   return (
