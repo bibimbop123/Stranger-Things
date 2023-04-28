@@ -1,7 +1,7 @@
 import useAuth from "../../hooks/useAuth";
 import { fetchMe } from "../../api/Users";
 import { useEffect, useState } from "react";
-import { deleteMessage } from "../../api/Messages";
+// import { deleteMessage } from "../../api/Messages";
 
 export default function Profile() {
   const { token, user } = useAuth();
@@ -31,7 +31,7 @@ export default function Profile() {
                 <li>
                   <div> From: {message.fromUser.username}</div>
                   <div>Message: {message.content} </div>
-                  <button onClick={deleteMessage}>delete message</button>
+                  <button>delete message</button>
                 </li>
               );
             })}

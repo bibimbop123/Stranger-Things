@@ -28,7 +28,6 @@ function App() {
   return (
     <div className="App">
       <nav id="navbar">
-        <Link to="/"> Home Page</Link>
         {user?.posts != undefined && (
           <>
             <Link to="/posts"> Posts </Link>
