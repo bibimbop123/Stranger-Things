@@ -17,7 +17,8 @@ export default function FetchAllPosts() {
   const [posts, setPosts] = useState([]);
   const { token, user } = useAuth();
   const navigate = useNavigate();
-
+  const [searchParam, setSearchParam] = useState("");
+  const [searchParam2, setSearchParam2] = useState("");
   useEffect(() => {
     async function getPosts() {
       const result = await fetchPosts();
@@ -41,9 +42,36 @@ export default function FetchAllPosts() {
     console.log("result:", result);
     setPosts(result.data.posts);
   }
+  const filteredPosts = posts.filter((post) => {
+    return post.author.username.toLowerCase().includes(searchParam);
+  });
+  const postsToDisplay = searchParam ? posts : filteredPosts;
+
+  const filteredPosts2 = posts.filter((post) => {
+    return post.title.toLowerCase().includes(searchParam2);
+  });
+  const postsToDisplay2 = searchParam2 ? posts : filteredPosts2;
 
   return (
     <div>
+      <div>
+        <div>
+          <h3>search username:</h3>
+          <input
+            type="text"
+            placeholder="search username"
+            onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
+          />
+        </div>
+        <div>
+          <h3>search Title:</h3>
+          <input
+            type="text"
+            placeholder="search Title"
+            onChange={(e) => setSearchParam2(e.target.value.toLowerCase())}
+          />
+        </div>
+      </div>
       {posts.map((post) => {
         return (
           <div key={post._id}>
