@@ -52,7 +52,7 @@ export function LoginForm() {
           <input
             required
             minLength={6}
-            type="text"
+            type="password"
             id="password"
             value={password}
             className="input"
