@@ -24,14 +24,15 @@ export default function Profile() {
       <h2>username:{user.username}</h2>
       <div>
         <ul>
-          {user.messages.map((message) => {
-            return (
-              <li>
-                <div> From: {message.fromUser.username}</div>
-                <div>Message: {message.content} </div>
-              </li>
-            );
-          })}
+          {user.messages &&
+            user.messages.map((message) => {
+              return (
+                <li>
+                  <div> From: {message.fromUser.username}</div>
+                  <div>Message: {message.content} </div>
+                </li>
+              );
+            })}
         </ul>
       </div>
       <div>

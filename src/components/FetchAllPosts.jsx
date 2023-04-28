@@ -85,7 +85,7 @@ export default function FetchAllPosts() {
             <p>Title: {post.title}</p>
             <p> {post.description}</p>
             <h5> Price: {post.price}</h5>
-            {user._id === post.author._id ? (
+            {user?._id === post.author._id ? (
               <div>
                 <button
                   onClick={async (e) => {

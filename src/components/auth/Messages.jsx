@@ -12,15 +12,19 @@ export default function Message() {
     e.preventDefault();
     try {
       const response = await postMessage(postId, token, message);
-      setMessage(response);
-      console.log(message, "message from message");
+      setMessage("");
+      console.log(response, "response from messages");
     } catch (error) {
       console.log(error);
     }
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
         <input
           value={message}
           onChange={(e) => {

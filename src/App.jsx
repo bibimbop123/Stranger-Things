@@ -29,15 +29,14 @@ function App() {
     <div className="App">
       <nav id="navbar">
         <Link to="/"> Home Page</Link>
-        {user != undefined && (
+        {user?.posts != undefined && (
           <>
             <Link to="/posts"> Posts </Link>
             <Link to="/users/profile">Profile</Link>
             <Link to="/create-post">Create Posts</Link>
-            <Link to="/posts/:postId/messages">Messages</Link>
           </>
         )}
-        {(user == null || undefined) && (
+        {(user?.posts == null || user?.posts == undefined) && (
           <>
             <Link to="/"> Login </Link>
             <Link to="/posts"> Posts </Link>

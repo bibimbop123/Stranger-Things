@@ -68,7 +68,7 @@ export function LoginForm() {
           </p>
         </form>
         <button
-          onClick={() => {
+          onClick={(e) => {
             setToken(null);
             localStorage.removeItem("token");
             console.log(token);
