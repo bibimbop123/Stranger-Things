@@ -43,26 +43,29 @@ export default function FetchAllPosts() {
     console.log("result:", result);
     setPosts(result.data.posts);
   }
-  async function fetchFilteredPosts() {
-    const result = await fetchPosts();
-    setPosts(result.data.posts);
+  // async function fetchFilteredPosts(post) {
+  //   const result = await fetchPosts();
+  //   setPosts(result.data.posts);
 
-    const filteredPosts = posts.filter((post) => {
-      return post.author.username.toLowerCase().includes(searchParam);
-    });
-    const postsToDisplay = searchParam ? posts : filteredPosts;
-  }
+  const filteredPosts = posts.filter((post) => {
+    return post.author.username.toLowerCase().includes(searchParam);
+  });
 
-  async function fetchFilteredPosts2() {
-    const result = await fetchPosts();
-    setPosts(result.data.posts);
+  searchParam === "" ? { posts } : { filteredPosts };
+  //   const postsToDisplay = searchParam ? posts : filteredPosts;
+  // }
 
-    const filteredPosts2 = posts.filter((post) => {
-      return post.title.toLowerCase().includes(searchParam2);
-    });
+  // async function fetchFilteredPosts2() {
+  //   const result = await fetchPosts();
+  //   setPosts(result.data.posts);
 
-    const postsToDisplay2 = searchParam2 ? posts : filteredPosts2;
-  }
+  const filteredPosts2 = posts.filter((post) => {
+    return post.title.toLowerCase().includes(searchParam2);
+  });
+  searchParam2 === "" ? { posts } : { filteredPosts2 };
+
+  //   const postsToDisplay2 = searchParam2 ? posts : filteredPosts2;
+  // }
   return (
     <div>
       <div>
